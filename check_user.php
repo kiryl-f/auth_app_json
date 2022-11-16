@@ -10,7 +10,7 @@ $users = json_decode($json, true);
 $i = 0;
 $user_found = false;
 foreach($users as $user) {
-    if($user['login'] === $login && $user['password'] === $password) {
+    if($user['login'] === $login && $user['password'] === md5($password) . 'salt') {
         setcookie('name', $user['name']);
         echo json_encode(array('found' =>  'true'));
         $user_found = true;

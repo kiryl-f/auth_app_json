@@ -17,7 +17,7 @@ function checkPassword(password, confirm_password) {
         error_message += 'Password must be at least 6 characters long\n';
         return false;
     }
-    if(!String(password).match("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})")) {
+    if(!/^[A-Za-z0-9]*$/.test(password)) {
         error_message += 'Password should contain both letters and numbers\n';
         return false;
     }
@@ -61,20 +61,27 @@ $(function () {
         checkEmail(email);
         checkName(name);
 
-        $.ajax({
-            type: 'post',
-            url: 'create_user.php',
-            data: $('form').serialize(),
-            success: function (response) {
-                if(error_message.length === 0) {
-                    location.href = 'index.php';
-                } else {
-                    alert(error_message);
+        if(error_message.length === 0) {
+            $.ajax({
+                type: 'post',
+                url: 'create_user.php',
+                data: $('form').serialize(),
+                success: function (response) {
+                    if(response['taken'] === 'login') {
+                        alert('This login is already taken');
+                    } else if(response['taken'] === 'email') {
+                        alert('This email is already taken');
+                    } else {
+                        location.href = 'index.php';
+                    }
+                },
+                error: function (jqXHR, textStatus, errorThrown) {
+                    alert(errorThrown);
                 }
-            },
-            error: function (jqXHR, textStatus, errorThrown) {
-                alert(errorThrown);
-            }
-        });
+            });
+        } else {
+            location.href = 'index.php';
+        }
+
     });
 });
