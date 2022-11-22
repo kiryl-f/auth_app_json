@@ -17,11 +17,10 @@ if(user_remembered()) {
 } else {
     $log_out_style = "style='display:none;'";
 }
-
 ?>
-<a href="auth.php" <?php echo $log_in_style?>>Login</a>
+<a href="auth.php" >Login</a>
 <br>
-<a href="registration.php" <?php echo $create_user_style?>>Create an account</a>
+<a href="registration.php" >Create an account</a>
 <br>
 <form action="log_out.php" method="post" <?php echo $log_out_style;?>>
     <button type="submit">Log out</button>

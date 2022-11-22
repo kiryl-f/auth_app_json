@@ -3,11 +3,12 @@
 <head>
     <link rel="stylesheet" href="css/auth_style.css">
     <title>Registration</title>
-    <script src="http://code.jquery.com/jquery-3.6.1.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.1.js"></script>
     <script src="js/reg_ajax.js"> </script>
 </head>
 <body>
 <h1 id="header">Enter your data here</h1>
+
 <form>
     <label for="login">Login</label>
     <input type="text" id="login" name="login" placeholder="Enter your login here" required><br>
