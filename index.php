@@ -7,20 +7,17 @@
 <body>
 
 <?php
-require 'is_set.php';
-$log_out_style = "";
-if(user_remembered()) {
-    echo "Hello, " . $_COOKIE['name'] . "<br>";
-    $log_in_style = "style='display:none;'";
-    $create_user_style = "style='display:none;'";
-}
+require 'check_logged_in.php';
+echo getMessage();
+$log_out_style = getLogOutFormStyle();
 ?>
 
-<a href="auth.php" >Login</a>
+
+<a href="auth.php">Login</a>
 <br>
 <a href="registration.php" >Create an account</a>
 <br>
-<form action="log_out.php" method="post" <?php echo $log_out_style;?>>
+<form action="log_out.php" method="post" <?php echo $log_out_style?>>
     <button type="submit">Log out</button>
 </form>
 

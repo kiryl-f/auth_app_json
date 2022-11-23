@@ -22,6 +22,10 @@ function checkPassword($password, $confirm_password): string {
     if (!(preg_match('/[A-Za-z]/', $password) && preg_match('/[0-9]/', $password))) {
         return "Password should contain numbers and letters\n";
     }
+
+    if(strpos($password, ' ') !== false) {
+        return "Password must not contain spaces\n";
+    }
     return '';
 }
 
@@ -29,11 +33,15 @@ function checkEmail($email):string {
     if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
        return "Invalid email format\n";
     }
+
+    if(strpos($email, ' ') !== false) {
+        return "Email must not contain spaces\n";
+    }
     return '';
 }
 
 function checkName($name):string {
-    if(!preg_match('/[A-Za-zА-я]/', $name)) {
+    if(!preg_match('/[A-Za-z]/', $name)) {
         return "Name should consist of letters\n";
     }
 

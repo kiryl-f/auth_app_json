@@ -11,7 +11,11 @@
 <h1 id="header">Enter your data here</h1>
 
 
-<?php include_once 'check_cookie.php'?>
+<?php
+require_once 'check_logged_in.php';
+echo getMessage();
+$log_out_style = getLogOutFormStyle();
+?>
 
 <form>
     <label for="login">Login</label>
@@ -26,6 +30,10 @@
     <input type="text" id="name" name="name" placeholder="Your name" required><br>
     <input type="hidden" value="reg">
     <input type="submit" value="Next">
+</form>
+
+<form action="log_out.php" method="post" <?php echo $log_out_style?>>
+    <button type="submit">Log out</button>
 </form>
 </body>
 </html>
