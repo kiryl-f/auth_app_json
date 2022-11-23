@@ -9,6 +9,8 @@
 <body>
 <h1 id="header">Enter your data here</h1>
 
+<?php include_once 'check_cookie.php'?>
+
 <form>
     <label for="login">Login</label>
     <input type="text" id="login" name="login" placeholder="Enter your login here" required><br>

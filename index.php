@@ -5,19 +5,17 @@
     <link rel="stylesheet" href="css/auth_style.css">
 </head>
 <body>
+
 <?php
-require_once 'is_set.php';
+require 'is_set.php';
 $log_out_style = "";
-$log_in_style = "";
-$create_user_style = "";
 if(user_remembered()) {
     echo "Hello, " . $_COOKIE['name'] . "<br>";
     $log_in_style = "style='display:none;'";
     $create_user_style = "style='display:none;'";
-} else {
-    $log_out_style = "style='display:none;'";
 }
 ?>
+
 <a href="auth.php" >Login</a>
 <br>
 <a href="registration.php" >Create an account</a>

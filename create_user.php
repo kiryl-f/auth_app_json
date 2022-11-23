@@ -4,6 +4,9 @@ function checkLogin($login):string {
     if(strlen($login) < 6) {
         return "Login must be at least 6 characters long\n";
     }
+    if(strpos($login, ' ') !== false) {
+        return "Login must not contain spaces\n";
+    }
     return '';
 }
 
@@ -13,7 +16,7 @@ function checkPassword($password, $confirm_password): string {
     }
 
     if(strlen($password) < 6) {
-        return 'Password must be at least 6 characters long';
+        return "Password must be at least 6 characters long\n";
     }
 
     if (!(preg_match('/[A-Za-z]/', $password) && preg_match('/[0-9]/', $password))) {
@@ -30,8 +33,12 @@ function checkEmail($email):string {
 }
 
 function checkName($name):string {
-    if(!preg_match('/[A-Za-z]/', $name)) {
+    if(!preg_match('/[A-Za-zА-я]/', $name)) {
         return "Name should consist of letters\n";
+    }
+
+    if(strpos($name, ' ') !== false) {
+        return "Name must not contain spaces\n";
     }
     return '';
 }
@@ -41,11 +48,11 @@ if(!empty($_SERVER['HTTP_X_REQUESTED_WITH'])  && strtolower($_SERVER['HTTP_X_REQ
     require_once 'user.php';
     require_once 'user_crud.php';
 
-    $login = trim($_POST['login']);
-    $password = trim($_POST['password']);
-    $confirm_password = trim($_POST['confirm_password']);
-    $email = trim($_POST['email']);
-    $name = trim($_POST['name']);
+    $login = $_POST['login'];
+    $password = $_POST['password'];
+    $confirm_password = $_POST['confirm_password'];
+    $email = $_POST['email'];
+    $name = $_POST['name'];
 
     $error_message = '';
 
