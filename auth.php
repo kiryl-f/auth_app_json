@@ -5,6 +5,7 @@
     <title>Authentication</title>
     <script src="https://code.jquery.com/jquery-3.6.1.js"></script>
     <script src="js/auth_ajax.js"></script>
+    <noscript>JS is disabled. Enable js to continue</noscript>
 </head>
 <body>
 <h1 id="header">Enter your data here</h1>
