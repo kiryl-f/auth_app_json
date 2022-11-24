@@ -20,5 +20,12 @@ function getLogOutFormStyle(): string {
     return '';
 }
 
+function getMainMenuButtonsStyle():string {
+    if(user_remembered()) {
+        return "style='display:none;'";
+    }
+    return '';
+}
+
 
 

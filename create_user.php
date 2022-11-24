@@ -34,7 +34,7 @@ function checkEmail($email):string {
        return "Invalid email format\n";
     }
 
-    if(strpos($email, ' ') !== false) {
+    if(strpos($email, ' ') !== false || $email !== trim($email)) {
         return "Email must not contain spaces\n";
     }
     return '';

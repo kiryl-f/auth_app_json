@@ -24,7 +24,7 @@ $log_out_style = getLogOutFormStyle();
     <input type="password" id="password" name="password" placeholder="Enter your password here" required><br>
     <label for="confirm_password">Confirm</label>
     <input type="password" id="confirm_password" name="confirm_password" placeholder="Confirm your password" required><br>
-    <label for="mail">Email</label>
+    <label for="email">Email</label>
     <input type="email" id="email" name="email" placeholder="email@example.com" required><br>
     <label for="name">Name</label>
     <input type="text" id="name" name="name" placeholder="Your name" required><br>

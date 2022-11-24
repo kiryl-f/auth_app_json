@@ -10,12 +10,13 @@
 require 'check_logged_in.php';
 echo getMessage();
 $log_out_style = getLogOutFormStyle();
+$main_style = getMainMenuButtonsStyle();
 ?>
 
 
-<a href="auth.php">Login</a>
+<a href="auth.php" <?php echo $main_style?>>Login</a>
 <br>
-<a href="registration.php" >Create an account</a>
+<a href="registration.php" <?php echo $main_style?>>Create an account</a>
 <br>
 <form action="log_out.php" method="post" <?php echo $log_out_style?>>
     <button type="submit">Log out</button>
