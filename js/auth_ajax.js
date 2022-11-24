@@ -10,8 +10,6 @@ $(function () {
                 if(response['found'] === 'true') {
                     location.href = 'index.php';
                 } else {
-                    var login = $('#login').val().trim();
-                    var password = $('#password').val.trim();
                     alert('Incorrect username or password');
                 }
             },
