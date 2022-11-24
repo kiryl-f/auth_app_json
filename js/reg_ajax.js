@@ -1,7 +1,6 @@
 $(function () {
     $('form').on('submit', function (e) {
         e.preventDefault();
-
         $.ajax({
             type: 'post',
             url: 'create_user.php',
