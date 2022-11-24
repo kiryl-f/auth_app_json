@@ -4,7 +4,7 @@
     <link rel="stylesheet" href="css/auth_style.css">
     <title>Authentication</title>
     <script src="https://code.jquery.com/jquery-3.6.1.js"></script>
-    <script src="js/authentification_ajax.js"></script>
+    <script src="js/authentication_ajax.js"></script>
     <noscript>JS is disabled. Enable js to continue</noscript>
 </head>
 <body>
