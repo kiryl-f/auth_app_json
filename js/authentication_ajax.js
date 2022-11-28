@@ -1,11 +1,11 @@
 $(function () {
-    $('form').on('submit', function (e) {
+    $("#next").on('submit', function (e) {
         e.preventDefault();
         $.ajax({
             type: 'post',
             url: 'check_user.php',
             dataType: 'json',
-            data: $('form').serialize(),
+            data: $(e.target).serialize(),
             success: function (response) {
                 if(response['found'] === 'true') {
                     location.href = 'index.php';
@@ -17,6 +17,5 @@ $(function () {
                 alert(errorThrown);
             }
         });
-
     });
 });

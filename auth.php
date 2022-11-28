@@ -10,7 +10,14 @@
 <body>
 <h1 id="header">Enter your data here</h1>
 
-<form>
+<?php
+require 'check_logged_in.php';
+echo getMessage();
+$log_out_style = getLogOutFormStyle();
+$main_style = getMainMenuButtonsStyle();
+?>
+
+<form id="#next" <?php echo $main_style?>>
     <label for="login">Login</label>
     <input type="text" id="login" name="login" placeholder="Enter your login here" required><br>
     <label for="password">Password</label>
@@ -18,4 +25,5 @@
     <input type="submit" value="Log in">
 </form>
 
+<button onclick="window.location.href='log_out.php';" <?php echo $log_out_style?>>Log out</button>
 </body>

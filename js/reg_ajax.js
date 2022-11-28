@@ -1,11 +1,11 @@
 $(function () {
-    $('form').on('submit', function (e) {
+    $("#next").on('submit', function (e) {
         e.preventDefault();
         $.ajax({
             type: 'post',
             url: 'create_user.php',
             dataType: 'json',
-            data: $('form').serialize(),
+            data: $(e.target).serialize(),
             success: function (response) {
                 if(response['error'].length === 0) {
                     location.href = 'index.php';
