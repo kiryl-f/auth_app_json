@@ -30,13 +30,14 @@ function checkPassword($password, $confirm_password): string {
 }
 
 function checkEmail($email):string {
+    if(strpos($email, ' ') !== false || $email !== trim($email)) {
+        return "Email must not contain spaces\n";
+    }
+
     if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
        return "Invalid email format\n";
     }
 
-    if(strpos($email, ' ') !== false || $email !== trim($email)) {
-        return "Email must not contain spaces\n";
-    }
     return '';
 }
 
@@ -47,6 +48,10 @@ function checkName($name):string {
 
     if(strpos($name, ' ') !== false) {
         return "Name must not contain spaces\n";
+    }
+
+    if(strlen($name) < 2) {
+        return "Name must be at least 2 characters long\n";
     }
     return '';
 }
