@@ -10,7 +10,7 @@ function getMessage(): string {
     if(user_remembered()) {
         return "Hello, " . $_COOKIE['name'] . "<br>";
     }
-    return "Hello!" . "<br>";
+    return "";
 }
 
 function getLogOutFormStyle(): string {

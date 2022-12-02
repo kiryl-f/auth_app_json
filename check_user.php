@@ -1,12 +1,13 @@
 <?php
 
+require_once 'user.php';
+require_once 'user_crud.php';
+
 if(!empty($_SERVER['HTTP_X_REQUESTED_WITH'])  && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest') {
-    require_once 'user.php';
 
     $login = trim($_POST['login']);
     $password = trim($_POST['password']);
-    $json = file_get_contents('users.json');
-    $users = json_decode($json, true);
+    $users = userCrud::getUsers();
     $i = 0;
     $user_found = false;
     foreach($users as $user) {
@@ -25,3 +26,4 @@ if(!empty($_SERVER['HTTP_X_REQUESTED_WITH'])  && strtolower($_SERVER['HTTP_X_REQ
 } else {
     echo 'Access denied';
 }
+
