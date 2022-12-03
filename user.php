@@ -87,7 +87,7 @@ class User {
         return '';
     }
 
-    function checkConfirmPassword($confirm_password): string {
+    public function checkConfirmPassword($confirm_password): string {
         if($this->getPassword() !== $confirm_password) {
             return "Passwords do not match\n";
         }
