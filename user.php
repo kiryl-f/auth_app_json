@@ -141,7 +141,7 @@ class User {
         return '';
     }
 
-    function getErrorMessage():string {
+    public function getErrorMessage():string {
         $error_message = $this->checkIfLoginIsTaken();
         $error_message .= $this->checkIfEmailIsTaken();
         $error_message .= $this->checkLogin($this->getLogin());
