@@ -61,7 +61,7 @@ class User {
             array('login' => $this->login, 'password' => $this->password, 'email' => $this->email, 'name' => $this->name);
     }
 
-    function checkLogin($login):string {
+    private function checkLogin($login):string {
         if(strlen($login) < 6) {
             return "Login must be at least 6 characters long\n";
         }
@@ -71,7 +71,7 @@ class User {
         return '';
     }
 
-    public function checkPassword($password): string {
+    private function checkPassword($password): string {
 
         if(strlen($password) < 6) {
             return "Password must be at least 6 characters long\n";
@@ -94,7 +94,7 @@ class User {
         return '';
     }
 
-    function checkEmail($email):string {
+    private function checkEmail($email):string {
         if(strpos($email, ' ') !== false || $email !== trim($email)) {
             return "Email must not contain spaces\n";
         }
@@ -106,7 +106,7 @@ class User {
         return '';
     }
 
-    function checkName($name):string {
+    private function checkName($name):string {
         if(!preg_match('/[A-Za-z]/', $name)) {
             return "Name should consist of letters\n";
         }
@@ -121,7 +121,7 @@ class User {
         return '';
     }
 
-    function checkIfLoginIsTaken(): string {
+    private function checkIfLoginIsTaken(): string {
         $users = userCrud::getUsers();
         foreach($users as $u) {
             if($u['login'] === $this->getLogin()) {
@@ -131,7 +131,7 @@ class User {
         return '';
     }
 
-    function checkIfEmailIsTaken(): string {
+    private function checkIfEmailIsTaken(): string {
         $users = userCrud::getUsers();
         foreach($users as $u) {
             if($u['email'] === $this->getEmail()) {

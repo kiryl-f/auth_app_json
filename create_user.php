@@ -9,7 +9,6 @@ if(!empty($_SERVER['HTTP_X_REQUESTED_WITH'])  && strtolower($_SERVER['HTTP_X_REQ
     $password = $_POST['password'];
     $confirm_password = $_POST['confirm_password'];
     $user = new User($login, $password, $email, $name);
-
     $error_message = '';
 
     $error_message = $user->getErrorMessage();
