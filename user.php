@@ -1,8 +1,9 @@
 <?php
 
 require_once 'user_crud.php';
+require_once 'add_user_interface.php';
 
-class User {
+class User implements addUserInterface {
     private ?string $login;
     private ?string $password;
     private ?string $email;
